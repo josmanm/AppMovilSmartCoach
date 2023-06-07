@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "907411268678",
+    "project_id": "smartcoach-d11d1",
+    "storage_bucket": "smartcoach-d11d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907411268678:android:c4bd404066a64d6af7d647",
+        "android_client_info": {
+          "package_name": "co.edu.appmovilsmartcoach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907411268678-6p10j3g01ic1rvkfepqh1hq8e3b1vuia.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.appmovilsmartcoach.ui.theme",
+            "certificate_hash": "7a5ffce5e1f687910a1f6ff4ef88b347cd01211b"
+          }
+        },
+        {
+          "client_id": "907411268678-uha6gcfaahgh3sshmj6idb4m5tqrqbkt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFrgTSt14EnCKQt6jBxbalRVGMk6yWouk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907411268678-uha6gcfaahgh3sshmj6idb4m5tqrqbkt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
