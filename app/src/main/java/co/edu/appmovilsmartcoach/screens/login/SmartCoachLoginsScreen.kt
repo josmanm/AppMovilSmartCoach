@@ -55,7 +55,6 @@ fun MascotaLoginScreen(
         val showLoginForm = rememberSaveable {
                 mutableStateOf(true)
         }
-
         Surface(modifier = Modifier
                 .fillMaxSize()
         ) {
