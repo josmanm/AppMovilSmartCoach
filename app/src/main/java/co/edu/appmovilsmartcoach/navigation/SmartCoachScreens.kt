@@ -1,6 +1,6 @@
 package co.edu.appmovilsmartcoach.navigation
 
-enum class MascotaScreens {
+enum class SmartCoachScreens {
     SplashScreen,
     LoginScrenn,
     MascotaHomeScreen

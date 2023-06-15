@@ -18,11 +18,14 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import co.edu.appmovilsmartcoach.navigation.MascotaScreens
+import co.edu.appmovilsmartcoach.navigation.SmartCoachScreens
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.delay
 
 @Composable
-fun MascotaSplashScreen(navController: NavController) {
+fun SmartCoachSplashScreen(navController: NavController) {
     val scale = remember {
         Animatable(0f)
     }
@@ -36,7 +39,15 @@ fun MascotaSplashScreen(navController: NavController) {
             ),
         )
         delay(3500L)
-        navController.navigate(MascotaScreens.LoginScrenn.name)
+        if(FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()){
+            navController.navigate(SmartCoachScreens.LoginScrenn.name)
+        }else{
+            navController.navigate(SmartCoachScreens.MascotaHomeScreen.name){
+                popUpTo(SmartCoachScreens.SplashScreen.name){
+                    inclusive = true
+                }
+            }
+        }
     }
     val color =MaterialTheme.colors.primary
     Surface(modifier = Modifier
@@ -53,15 +64,11 @@ fun MascotaSplashScreen(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
         ) {
-            Text("Mascota feliz",
+            Text("SmartCoach",
                 style = MaterialTheme.typography.h3,
                 color = color.copy(alpha = 0.5f)
             )
             Spacer(modifier = Modifier.height(15.dp))
-            Text("Lo que  tu mascota necesita",
-                style = MaterialTheme.typography.h5,
-                color = color
-            )
         }
 
     }

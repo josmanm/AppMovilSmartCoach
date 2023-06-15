@@ -4,34 +4,52 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
+import kotlin.math.log
 
 class LoginScreenViewModel: ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
     private val _loading = MutableLiveData(false)
 
+    fun signInWithGoogleCredential(credential: AuthCredential, home:()->Unit)
+    =viewModelScope.launch {
+        try {
+            auth.signInWithCredential(credential)
+                .addOnCompleteListener{task->
+                    if(task.isSuccessful){
+                        home()
+                    }
+                }
+                .addOnFailureListener{
+                    Log.d("Smart Coach", "Fallo el longuer con google")
+                }
+        }catch (ex: Exception){
+            Log.d("Smart Coach", "Fallo el longuer con google")
+        }
+    }
     fun singInWithEmailAndPassword(email:String , password: String , home:()->Unit)
     =viewModelScope.launch {
         try {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener {authResult->
-                    Log.d("FB", "" +
+                    Log.d("Smart coach", "" +
                             "singInWithEmailAndPassword Logueado!!!: ${authResult.toString()}")
                     home()
                 }
                 .addOnFailureListener{ex->
                     // código cuando falla
                     // Tienes acceso a la excepción
-                    Log.d("FB", "" +
+                    Log.d("Smart coach", "" +
                             "singInWithEmailAndPassword Falló!!!: ${ex.localizedMessage}")
                     //errorLogueo()
                 }
         }catch (ex: Exception){
-            Log.d("Mascota feliz","singInWithEmailAndPassword ${ex.message} !!")
+            Log.d("Smart coach","singInWithEmailAndPassword ${ex.message} !!")
         }
     }
 
@@ -50,7 +68,7 @@ class LoginScreenViewModel: ViewModel() {
                         createUser(displayName)
                         home()
                     }else{
-                        Log.d("Mascota feliz", "createUserWithEmailAndPassword" )
+                        Log.d("Smart coach", "createUserWithEmailAndPassword" )
                     }
                     _loading.value = false
                 }
@@ -66,9 +84,9 @@ class LoginScreenViewModel: ViewModel() {
         FirebaseFirestore.getInstance().collection("users")
             .add(user)
             .addOnSuccessListener {
-                Log.d("Mascota feliz","Creado ${it.id}")
+                Log.d("Smart coach","Creado ${it.id}")
             }.addOnFailureListener {
-                Log.d("Mascota feliz", "Ocurrio un error")
+                Log.d("Smart coach", "Ocurrio un error")
             }
     }
 

@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "907411268678-uha6gcfaahgh3sshmj6idb4m5tqrqbkt.apps.googleusercontent.com",
+          "client_id": "907411268678-girn9lm1khh1hadkhi7luimetuur1447.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.appmovilsmartcoach",
+            "certificate_hash": "7a5ffce5e1f687910a1f6ff4ef88b347cd01211b"
+          }
+        },
+        {
+          "client_id": "907411268678-97hptlk8pt574q5df730fe470ohl2nm7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "907411268678-uha6gcfaahgh3sshmj6idb4m5tqrqbkt.apps.googleusercontent.com",
+              "client_id": "907411268678-97hptlk8pt574q5df730fe470ohl2nm7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -9,15 +9,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import co.edu.appmovilsmartcoach.navigation.MascotaNavigation
+import androidx.navigation.compose.rememberNavController
+import co.edu.appmovilsmartcoach.navigation.SmartCoachNavigation
 import co.edu.appmovilsmartcoach.ui.theme.AppMovilSmartCoachTheme
 
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -45,7 +49,7 @@ fun MascotaApp(){
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            MascotaNavigation()
+            SmartCoachNavigation()
         }
     }
 }
