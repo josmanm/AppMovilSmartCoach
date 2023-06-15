@@ -39,15 +39,16 @@ fun SmartCoachSplashScreen(navController: NavController) {
             ),
         )
         delay(3500L)
-        if(FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()){
-            navController.navigate(SmartCoachScreens.LoginScrenn.name)
-        }else{
-            navController.navigate(SmartCoachScreens.MascotaHomeScreen.name){
-                popUpTo(SmartCoachScreens.SplashScreen.name){
-                    inclusive = true
-                }
-            }
-        }
+        navController.navigate(SmartCoachScreens.LoginScrenn.name)
+//        if(FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()){
+//            navController.navigate(SmartCoachScreens.LoginScrenn.name)
+//        }else{
+//            navController.navigate(SmartCoachScreens.MascotaHomeScreen.name){
+//                popUpTo(SmartCoachScreens.SplashScreen.name){
+//                    inclusive = true
+//                }
+//            }
+//        }
     }
     val color =MaterialTheme.colors.primary
     Surface(modifier = Modifier

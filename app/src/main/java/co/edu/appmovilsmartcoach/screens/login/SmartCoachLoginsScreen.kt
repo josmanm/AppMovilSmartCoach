@@ -23,22 +23,28 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import co.edu.appmovilsmartcoach.navigation.SmartCoachScreens
 import co.edu.appmovilsmartcoach.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.GoogleApiActivity
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlin.math.log
+import androidx.compose.ui.text.font.FontWeight.Companion as FontWeight1
 
 @Composable
 fun MascotaLoginScreen(
@@ -49,30 +55,16 @@ fun MascotaLoginScreen(
         val showLoginForm = rememberSaveable {
                 mutableStateOf(true)
         }
-        val laucher = rememberLauncherForActivityResult(
-                contract =ActivityResultContracts
-                        .StartActivityForResult()
-        ){
-                val task = GoogleSignIn.getSignedInAccountFromIntent(it.data)
-                try{
-                        val account = task.getResult(ApiException::class.java)
-                        val credencial = GoogleAuthProvider.getCredential(account.idToken ,null)
-                        viewModel.signInWithGoogleCredential(credencial){
-                                navController.navigate(SmartCoachScreens.MascotaHomeScreen.name)
-                        }
-                }catch (){
-                        Log.d("Smart Coach","Google Sing in fallo")
-                }
-        }
+
         Surface(modifier = Modifier
                 .fillMaxSize()
         ) {
-                Image(
-                        painter = painterResource(id = co.edu.appmovilsmartcoach.R.drawable.fondo1),
-                        contentDescription = null,
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Crop
-                )
+//                Image(
+//                        painter = painterResource(id = co.edu.appmovilsmartcoach.R.drawable.fondo1),
+//                        contentDescription = null,
+//                        modifier = Modifier.fillMaxSize(),
+//                        contentScale = ContentScale.Crop
+//                )
                 Column (
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
@@ -118,23 +110,6 @@ fun MascotaLoginScreen(
                                         .clickable { showLoginForm.value = !showLoginForm.value }
                                         .padding(start = 5.dp),
                                         color = MaterialTheme.colors.secondaryVariant
-                                )
-                        }
-                        Row(
-                                modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(10.dp)
-                                        .clip(RoundedCornerShape(10.dp))
-                                        .clickable { }
-                        ){
-                                Image(
-                                        painter = painterResource(id = R.drawable.icongoogle),
-                                        contentDescription ="Login de Google",
-                                        modifier = Modifier
-                                                .padding(10.dp)
-                                                .size(40.dp)
-                                )
-                                Text(text = "Login con google"
                                 )
                         }
                 }

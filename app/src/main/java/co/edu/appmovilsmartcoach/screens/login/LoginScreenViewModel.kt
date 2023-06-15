@@ -16,22 +16,6 @@ class LoginScreenViewModel: ViewModel() {
     private val auth: FirebaseAuth = Firebase.auth
     private val _loading = MutableLiveData(false)
 
-    fun signInWithGoogleCredential(credential: AuthCredential, home:()->Unit)
-    =viewModelScope.launch {
-        try {
-            auth.signInWithCredential(credential)
-                .addOnCompleteListener{task->
-                    if(task.isSuccessful){
-                        home()
-                    }
-                }
-                .addOnFailureListener{
-                    Log.d("Smart Coach", "Fallo el longuer con google")
-                }
-        }catch (ex: Exception){
-            Log.d("Smart Coach", "Fallo el longuer con google")
-        }
-    }
     fun singInWithEmailAndPassword(email:String , password: String , home:()->Unit)
     =viewModelScope.launch {
         try {
