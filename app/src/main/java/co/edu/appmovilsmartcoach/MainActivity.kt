@@ -41,9 +41,8 @@ class MainActivity : ComponentActivity() {
 fun MascotaApp(){
     Surface(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 46.dp),
-            color = MaterialTheme.colors.background
+            .fillMaxSize(),
+        color = MaterialTheme.colors.background
     ) {
         Column(
             verticalArrangement = Arrangement.Center,
