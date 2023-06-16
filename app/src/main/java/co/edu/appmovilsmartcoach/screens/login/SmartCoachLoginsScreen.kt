@@ -60,7 +60,7 @@ fun MascotaLoginScreen(
                         viewModel.signInWithGoogleCredential(credencial){
                                 navController.navigate(SmartCoachScreens.MascotaHomeScreen.name)
                         }
-                }catch (){
+                }catch (ex:Exception){
                         Log.d("Smart Coach","Google Sing in fallo")
                 }
         }
