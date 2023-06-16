@@ -40,8 +40,7 @@ fun PantallaPrincipal() {
         Destinos.Pantalla1,
         Destinos.Pantalla2,
         Destinos.Pantalla3,
-        Destinos.Pantalla4,
-        Destinos.Pantalla5,
+        Destinos.Pantalla4
     )
     val bottomItems = listOf(
         Items_menu.Pantalla1,
