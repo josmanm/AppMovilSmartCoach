@@ -60,7 +60,7 @@ fun MascotaLoginScreen(
                 .fillMaxSize()
         ) {
                 Image(
-                        painter = painterResource(id = co.edu.appmovilsmartcoach.R.drawable.fondo1),
+                        painter = painterResource(id = co.edu.appmovilsmartcoach.R.drawable.fondo2),
                         contentDescription = null,
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
@@ -104,7 +104,7 @@ fun MascotaLoginScreen(
                                 val text2 =
                                         if(showLoginForm.value) "Registrarte"
                                         else "Inicia sesion"
-                                Text(text = text1)
+                                Text(text = text1, color = Color.White)
                                 Text(text = text2,
                                 modifier = Modifier
                                         .clickable { showLoginForm.value = !showLoginForm.value }

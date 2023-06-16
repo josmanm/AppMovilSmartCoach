@@ -7,7 +7,7 @@ sealed class Destinos(
     val title : String,
     val ruta : String
 ){
-    object Pantalla1 : Destinos(R.drawable.icongimnasio, "PROGRESO", "pantalla1")
+    object Pantalla1 : Destinos(R.drawable.icongimnasio, "NOTICIAS", "pantalla1")
     object Pantalla2 : Destinos(R.drawable.logo, "RUTINAS", "pantalla2")
     object Pantalla3 : Destinos(R.drawable.iconcampana, "NOTIFICACIONES", "pantalla3")
     object Pantalla4 : Destinos(R.drawable.iconinformacion, "AYUDA Y FEEDBACK", "pantalla4")
