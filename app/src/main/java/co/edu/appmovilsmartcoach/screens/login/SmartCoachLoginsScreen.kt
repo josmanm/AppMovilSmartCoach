@@ -58,12 +58,12 @@ fun MascotaLoginScreen(
         Surface(modifier = Modifier
                 .fillMaxSize()
         ) {
-//                Image(
-//                        painter = painterResource(id = co.edu.appmovilsmartcoach.R.drawable.fondo1),
-//                        contentDescription = null,
-//                        modifier = Modifier.fillMaxSize(),
-//                        contentScale = ContentScale.Crop
-//                )
+                Image(
+                        painter = painterResource(id = co.edu.appmovilsmartcoach.R.drawable.fondo1),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
+                )
                 Column (
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
