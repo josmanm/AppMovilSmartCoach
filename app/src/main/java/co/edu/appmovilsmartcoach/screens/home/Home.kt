@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -164,7 +165,7 @@ fun TopBar(
     }
 
     TopAppBar (
-        title= { Text(text = MyTitle)},
+        title= { Text(text = MyTitle, fontSize = 15.sp)},
         //Boton para abrir el boton lateral
         navigationIcon = {
             IconButton(onClick = {
