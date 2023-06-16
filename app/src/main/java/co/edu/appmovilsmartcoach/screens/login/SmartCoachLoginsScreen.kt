@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
@@ -218,6 +219,11 @@ fun PasswordInput(
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Password
+                ),colors = TextFieldDefaults.textFieldColors(
+                        backgroundColor = Color.White,
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
                 ),
                 modifier = Modifier
                         .padding(bottom = 10.dp, start = 10.dp, end = 10.dp)
@@ -274,6 +280,11 @@ fun InputField(
                         .fillMaxWidth(),
                 keyboardOptions = KeyboardOptions(
                         keyboardType = keyboardType
-                )
+                ),colors = TextFieldDefaults.textFieldColors(
+                        backgroundColor = Color.White,
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent,
+                        disabledIndicatorColor = Color.Transparent
+                ),
         )
 }
